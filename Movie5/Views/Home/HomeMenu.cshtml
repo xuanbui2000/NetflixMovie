@@ -1,0 +1,73 @@
+﻿<!--Main Navigation-->
+<style>
+    /* Carousel styling */
+    #introCarousel,
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item.active {
+        height: 100vh;
+        z-index:-1;
+    }
+
+        .carousel-item:nth-child(1) {
+            background-image: url('https://luyenthiielts7.com/wp-content/uploads/2020/10/Endgame-Lead-1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .carousel-item:nth-child(2) {
+            background-image: url('https://images.indianexpress.com/2022/04/memory-movie-review-.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .carousel-item:nth-child(3) {
+            background-image: url('https://i.ytimg.com/vi/4LhkXX9r6kY/maxresdefault.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+    .mask {
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 300px;
+        z-index:auto;
+    }
+
+</style>
+
+<!-- Carousel wrapper -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active"> </div>
+    <div class="carousel-item"> </div>
+    <div class="carousel-item"></div>
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white text-center">
+              <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
+              <h5 class="mb-4">Best & free guide of responsive web design</h5>
+              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Email Address" aria-describedby="button-addon2">
+                                <button class="btn btn-danger" type="button" id="button-addon2">Try It Now></button>
+                            </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

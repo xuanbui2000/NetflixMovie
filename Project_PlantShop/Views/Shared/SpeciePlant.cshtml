@@ -1,0 +1,19 @@
+﻿@using Project_PlantShop.Data
+@inject PlantContext _plantContext
+@{
+    List<Specie> list = _plantContext.GetSpecies();
+}
+<li class="nav-item nav-item dropdown">
+    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Species
+    </a>
+    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+        @foreach (var item in list)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark text-center" asp-controller="Plants" asp-action="PlantsWithSpecie" asp-route-id="@item.Id">@item.Name</a>
+            </li>
+        }
+
+    </ul>
+</li>

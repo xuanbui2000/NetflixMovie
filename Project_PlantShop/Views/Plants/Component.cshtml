@@ -1,0 +1,20 @@
+﻿
+@{
+    var id = ViewData["PlantID"];
+}
+<li class="nav-item nav-item dropdown">
+    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Compoments
+    </a>
+    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+        <li class="nav-item">
+            <a class="nav-link text-dark text-center" asp-action="Edit" asp-route-id="@id">Edit</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link text-dark text-center" asp-action="Details" asp-route-id="@id">Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark text-center" asp-action="Delete" asp-route-id="@id">Delete</a>
+        </li>    
+    </ul>
+</li>

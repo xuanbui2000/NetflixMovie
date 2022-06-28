@@ -1,0 +1,66 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.child_item {
+    float: left;
+    margin-left: 8px;
+    width: 400px;
+}
+
+.mainText {
+    color: aliceblue;
+}
+.card-footer {
+    display:flex;
+    justify-content:center;
+    
+}
+    .card-footer > a {
+        height: 40px;
+        width: 70px;
+        margin-left:5px;
+    }
+
+
+.watch_card {
+    margin: auto;
+    width: 50%;
+    height: 70%;
+}
+
+.center_footer {
+    margin: 0px 120px
+}
+.setSize {
+    width: 370px;
+    height: 150px;
+}
+.card-footer{
+    background: none!important;
+}
+
+
+
+
+
+
+
+
+
+
+

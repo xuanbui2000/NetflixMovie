@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Project_PlantShop.Models
+@using Project_PlantShop.Data
+
+@inject SignInManager<PlantUser> SignInManager
+@inject UserManager<PlantUser> UserManager
+@inject PlantContext _context
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+        <li class="nav-item">
+            @{
+                var user = await UserManager.FindByNameAsync(User.Identity.Name);
+                var profile = _context.Profile.FirstOrDefault(x => x.UserId == user.Id);
+
+                if (profile == null)
+                {
+                        @:<div>
+                            <a asp-controller="Account" asp-action="Profile" id="manage" class="nav-link text-dark" title="Manage">
+                                    <span><img src="/Images/default-avatar.png" style="border-radius:25%;width:10px;height:10px"/></span>
+                                             @UserManager.GetUserName(User)
+                            </a>
+                        @:</div>
+                }
+                else
+                {
+                         @:<div>
+                            <a asp-controller="Account" asp-action="Profile" id="manage" class="nav-link text-dark" title="Manage">
+                                            <span><img src="@profile.Avatar" style="border-radius:50%;width:30px;height:30px"/></span>
+                                             @profile.FullName
+                            </a>
+                         @:</div>
+                }
+            }
+    </li>
+   
+    <li class="nav-item">
+        <form id="logoutForm" class="form-inline"  asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-controller="Account" asp-action="Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="login"  asp-controller="Account" asp-action="Login">Login</a>
+    </li>
+}
+</ul>
+

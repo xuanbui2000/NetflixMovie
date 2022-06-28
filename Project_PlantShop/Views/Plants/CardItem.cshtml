@@ -1,0 +1,16 @@
+﻿@model Project_PlantShop.Models.Plant
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var product in ViewData["listGenre"] as IList<Plant>)
+    {
+        <div class="col">
+            <div class="card">
+                <img src="@product.ImgTitle" class="card-img-top" alt="@product.ImgTitle">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Price</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

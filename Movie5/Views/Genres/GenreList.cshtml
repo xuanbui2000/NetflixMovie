@@ -1,0 +1,28 @@
+﻿@model Movie5.Controllers.GenresController
+<div class="container">
+    <div class="card_Item">
+        @foreach (var product in ViewData["listGenre"] as IList<Movie>)
+        {
+            var photoPath = "~/Imgs/" + (product.imageTitle);
+            <div class="col-4 mb-5 child_item">
+
+                <h3 class="card-header text-c">@product.Title</h3>
+                <div class="card-body" style="height: 150px;">
+                    <div class="setSize">
+                        <img src="@photoPath" class="w-100" asp-append-version="true"></img>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="mb-5 p-2 bg-dark text-white">@(product.Price.ToString("n0")) VND</span>
+
+                    <a class="btn btn-secondary btn-sm float-right" asp-area="" asp-controller="Genres" asp-action="Watch" asp-route-id="@product.Id">Play</a>
+                </div>
+
+            </div>
+
+        }
+    </div>
+
+</div>
+
+ 

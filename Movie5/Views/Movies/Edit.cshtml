@@ -1,0 +1,153 @@
+﻿@model Movie5.Models.Movie
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPost">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" />
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Producer" class="control-label mt-3"></label>
+                <select asp-for="ProducerId" class="form-control mt-3" asp-items="ViewBag.company">
+                    <option>Select a company</option>
+                </select>
+                @* <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Add New Company</a>
+                @{
+                if (check.Length > 0)
+                {
+                <div class="alert alert-danger" role="alert">
+                <p>@note</p>
+                </div>
+                }
+                }*@
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Genres" class="control-lable"></label>
+
+                @{
+
+                    List<Movie5.Models.Genre> genres = ViewBag.Genres;
+                     List<Movie5.Models.Genre> genresExit = ViewBag.GenresExit;
+                     
+
+                    foreach (var genre in genres)
+                    {
+                        if (genresExit.Contains(genre))
+                        {
+                            @:<input type="checkbox" name="selectedGenres" value="@genre.Id" checked />
+                        }
+                        else
+                        {
+                            @:<input type="checkbox" name="selectedGenres" value="@genre.Id" />
+                            
+
+                        }
+                       
+                        @genre.Name
+                        @:
+                    }
+
+                }
+            </div>
+            <div class="form-group" id="members">
+                <label asp-for="Members" class="control-lable"></label>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <select asp-items="ViewBag.People" name="members[0].PersonId" class="form-control">
+                            <option>Select a member</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-items="Html.GetEnumSelectList<Role>()" name="members[0].Role" class="form-control">
+                            <option>Select a role</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button class="add-member btn btn-primary" type="button">
+                                Add
+                            </button>
+                            <button class="delete-member btn btn-primary" type="button">
+                                Delete
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieLink" class="control-label"></label>
+                <input asp-for="MovieLink" class="form-control" />
+                <span asp-validation-for="MovieLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="imageTitle" class="control-label"></label>
+                <input asp-for="imageTitle" class="form-control" placeholder="Name file" />
+                <span asp-validation-for="imageTitle" class="text-danger"></span>
+                <input type="file" id="encryptfilefield" name="uploadedfile" enctype='multipart/form-data' />
+            </div>
+            <div class="form-group mt-1">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+    }
+    <script>
+        $(".add-member").on("click", function(event) {
+            var row = $(event.target).closest(".row");
+            var newRow = row.clone(true);
+
+            $("#members").append(newRow);
+            updateIndex();
+        })
+
+
+        $(".delete-member").on("click", function(event) {
+            var row = $(event.target).closest(".row");
+            row.remove();
+            updateIndex();
+        })
+
+        function updateIndex() {
+            var memberCount = $("#members .row").length;
+            for (var i = 0; i < memberCount; i++) {
+                $(`#members .row:nth-child(${i + 2}) select`).eq(0).attr("name", `members[${i}].PersonId`)
+                $(`#members .row:nth-child(${i + 2}) select`).eq(1).attr("name", `members[${i}].Role`)
+            }
+        }
+    </script>
+        }

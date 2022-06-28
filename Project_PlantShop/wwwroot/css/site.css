@@ -1,0 +1,61 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.imgStaff img{
+    max-width:500px;
+    max-height:400px;
+    
+}
+.custom-svg {
+    background: transparent url("https://codex-themes.com/thegem/sites/shop-plants/wp-content/uploads/2022/02/logo.svg") no-repeat scroll 0px 0px;
+    width: 164px;
+    height: 50px;
+    vertical-align: middle;
+}
+.disable{
+    display:block;
+}
+.imgLogo {
+    max-width: 200px;
+}
+.text-img{
+    position:absolute;
+    top:20%;
+}
+.card-img{
+    margin-bottom:50px;
+    position:relative;
+}
+.card-specie{
+    position:relative;
+}
+.card-specie .text{
+    position:absolute;
+    top:50%;
+    left:10%;
+}
+li{
+    list-style:none;
+}
+.-footer {
+    padding: 20px;
+    background-color: #c4c4c4;
+}
+a {
+    text-decoration: none;
+}

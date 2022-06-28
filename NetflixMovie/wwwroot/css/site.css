@@ -1,0 +1,71 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.bodyHome {
+    background-image: url("/Images/TurningRed.jpg");
+    background-attachment:fixed
+}
+.bodyPage {
+    background: linear-gradient(to right, transparent, #000000), url(/Images/TurningRed.jpg);
+    background-attachment: fixed
+}
+.background_table {
+    background-color: #7997e4ba;
+    color: antiquewhite;
+}
+
+    .background_table td {
+        color: antiquewhite;
+    }
+
+    .background_table tr:hover {
+        background: radial-gradient(#b87575, transparent);
+        color: antiquewhite;
+    }
+
+    .background_table td a {
+        color: antiquewhite;
+    }
+
+        .background_table td a:hover {
+            color: black;
+        }
+
+.menu_nav {
+    color: aqua;
+}
+
+.title_h{
+    color:aliceblue
+}
+.child_item {
+    float: left;
+    margin-left: 8px;
+    width: 400px;
+    color:aliceblue
+    
+}
+.mainText{
+    color:aliceblue
+}
+.watch_card {
+    margin: auto;
+    width: 50%;
+    height: 70%;
+
+}
+.center_footer{
+    margin:0px 120px
+}

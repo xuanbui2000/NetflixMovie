@@ -1,0 +1,39 @@
+﻿@model Project_PlantShop.Models.Plant
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="@Html.DisplayFor(model =>model.ImgTitle)" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(model =>model.Name)</h5>
+                    <p class="card-text">Price: $ @Html.DisplayFor(model =>model.Price) </p>
+                    <p class="card-text">Quantity: @Html.DisplayFor(model =>model.Quantity) </p>
+                    <p class="card-text"><small class="text-muted">@Html.DisplayFor(model =>model.Description)</small></p>
+                </div>
+                <form asp-action="AddToCard" method="get">
+                <div class="btn-group" role="group">
+                    <input type="hidden" value="@Html.DisplayFor(model =>model.Id)" name="product">
+                    <input type="number" id="input-number" value="1" class="btn border border-3 add-item" name="quantities"/>
+                    <input type="submit" class="btn btn-primary" value="Add"/>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+
+    @*<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>*@
+</div>
+
+    

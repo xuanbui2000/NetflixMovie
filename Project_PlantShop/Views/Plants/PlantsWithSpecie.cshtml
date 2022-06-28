@@ -1,0 +1,39 @@
+﻿
+
+@{
+    Specie specie = ViewBag.SpecieName;
+    List<Plant>list = ViewBag.plants;
+            
+}
+
+<h1>@specie.Name</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row row-cols-1 row-cols-md-6 g-4">
+    @foreach (var item in list)
+    {
+        <tr>
+            <td>
+                <div class="col">
+                    <div class="card">
+                        <img src="@item.ImgTitle" class="card-img-top" alt="Imge">
+                        <div class="card-body">
+                            <ul class="navbar-nav flex-grow-1">
+                            @await Html.PartialAsync("Component", new ViewDataDictionary(ViewData) { {"PlantID", @item.Id}})
+                            </ul>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            @* <td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </td>*@
+        </tr>
+    }
+</div>
+

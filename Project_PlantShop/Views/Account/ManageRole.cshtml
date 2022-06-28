@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityUserRole<int>
+
+@{
+    ViewData["Title"] = "Manage Roles";
+}
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-5">
+            <div>All Users</div>
+            @foreach (PlantUser user in ViewBag.Users)
+            {
+                <div class="row">
+                    @Html.AjaxActionLink(user.Profile?.FullName??user.UserName,"GetRole",new{id=user.Id},
+                new AjaxOptions{
+                UpdateTargetId = "role_form",
+                LoadingElementId = "loading",
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                OnSuccess="clearResult"
+                }
+                )
+                </div>
+            }
+        </div>
+        <div class="col-md-5">
+            <div id="loading" style="display:none">
+                Loading .....
+            </div>
+            @using (Html.AjaxBeginForm(new AjaxOptions
+             {
+                 HttpMethod = "post",
+                 InsertionMode = InsertionMode.Replace,
+                 UpdateTargetId = "result"
+             }))
+            {
+                <div class="form-group">
+    <input asp-for="UserId" class="form-control" type="hidden" value="@ViewBag.UserId"/>
+    <div class="form-group">
+         <select asp-for="RoleId" class ="form-control" asp-items="ViewBag.Roles">
+                    <option>---Select Role---</option>
+          </select>
+    </div>
+</div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            }
+            <div id="result">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@model Movie5.Models.Company
+<style>
+    input{
+        margin:5px;
+    }
+</style>
+        <form asp-action="CreateComp">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="input-group mb-3">
+                <input asp-for="Id" class="form-control" placeholder="ID" aria-label="ID">
+                <input asp-for="Name" class="form-control" placeholder="Name" aria-label="Name">
+                <input type="submit" value="CreateComp" class="btn btn-primary" />
+            </div>
+        </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

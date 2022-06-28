@@ -1,0 +1,43 @@
+﻿@{
+
+    var operators = new SelectListItem[]
+            {
+        new SelectListItem{Value="+",Text="+"},
+        new SelectListItem{Value="-",Text="-"},
+        new SelectListItem{Value="x",Text="x"},
+        new SelectListItem{Value="/",Text="/"}
+            };
+}
+@model Expression
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CalculatorMethod" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-white"></div>
+            <div class="form-group">
+                <label asp-for="A" class="control-label text-white"></label>
+                <input asp-for="A" class="form-control" />
+                <span asp-validation-for="A" class="text-white"></span>
+            </div>
+           <select asp-for="Operator" asp-items="operators"></select>
+            <div class="form-group">
+                <label asp-for="B" class="control-label text-white"></label>
+                <input asp-for="B" class="form-control" />
+                <span asp-validation-for="B" class="text-white"></span>
+            </div>
+              <div class="form-group">
+                <label class="control-label text-white"> @if (Context.Request.Method.ToLower() == "post")
+                    {
+                       <text> @(Model.Value) </text>
+                    }
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

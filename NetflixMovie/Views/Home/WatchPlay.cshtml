@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    var strings = "Hello";
+}
+
+<div class="card text-center watch_card">
+    <div class="card-header">
+        <h1>Enjoy the film</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Movie</h5>
+        <div class="card-body">
+            <img src="~/Images/load.png" class="w-100"></img>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-primary">Play</a>
+            <a asp-area="" asp-controller="Genre" asp-action="Index" class="btn btn-primary">Come back</a>
+        </div>
+    </div>
+
+    <div class="card-footer text-muted">
+    </div>
+</div>
+
+
+

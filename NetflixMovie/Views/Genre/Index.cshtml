@@ -1,0 +1,28 @@
+﻿@model NetflixMovie.Controllers.GenreController
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+ <div class="card_Item">
+
+            @foreach (var product in ViewData["listGenre"] as IList<Movie>)
+            {
+                 var photoPath = "~/Images/"+product.imageTitle + ".png";
+                <div class="col-4 mb-5 child_item">
+
+                    <h3 class="card-header">@product.Title</h3>
+                    <div class="card-body" style="height: 150px;">
+                        @product.Genre
+                         <img src="@photoPath" class="w-100" asp-append-version="true"></img>
+                    </div>
+                    <div class="card-footer center_footer ">
+                        <span class="mb-5 p-2 bg-dark text-white">@(product.Price.ToString("n0")) VND</span>
+
+                        <a class="btn btn-secondary btn-sm float-right" asp-controller="Home" asp-action="WatchPlay">Play</a>
+                    </div>
+
+                </div>
+
+            }
+        </div>

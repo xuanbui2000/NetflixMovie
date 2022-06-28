@@ -1,0 +1,29 @@
+﻿@model Movie5.Controllers.GenresController
+@{
+    var product = ViewData["movie"] as Movie;
+    ViewData["Title"] = "watch_"+product.Title;
+    var id = ViewData["genre"];
+    //var path = "~/Imgs/" + product.imageTitle + ".png";
+}
+<div class="d-flex justify-content-center" >
+
+</div>
+<div class="card text-center watch_card">
+  <div class="card-header">
+   <h1>@product.Title</h1>
+  </div>
+  <div class="card-body">
+    <div class="card-body">
+     <iframe width="560" height="315" src="@product.MovieLink" allowfullscreen></iframe>
+    </div>
+    <div class="card-footer">
+     <a asp-area="" asp-controller="Genres" asp-action="GenreList" asp-route-id="@id" class="btn btn-primary">Back</a>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
+
+
+ 
